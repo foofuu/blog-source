@@ -7,12 +7,16 @@ env:
     - GH_REF: github.com/zhoufoofoo/zhoufoofoo.github.io
 
 before_install:
-- export TZ='Asia/Shanghai'  
-- npm install -g hexo
-- npm install -g hexo-cli
+  - export TZ='Asia/Shanghai'  
+  - npm install -g hexo
+  - npm install -g hexo-cli
 
 install:
   - npm install
+
+cache:
+  directories:
+    - node_modules
 
 script:
   - hexo clean
