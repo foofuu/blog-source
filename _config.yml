@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 夫夫的博客
-subtitle: 夫夫的博客
-description: 但行好事 莫问前程
-author: 夫夫
+title:  Foo's Blog
+subtitle: Qucick Notes
+description: 但行好事，莫问前程 
+author: foo
 language: zh-Hans
 timezone:
 
