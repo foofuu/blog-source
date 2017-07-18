@@ -4,15 +4,15 @@
 
 # Site
 title:  Foo's Blog
-subtitle: Qucick Notes
-description: 但行好事，莫问前程 
+subtitle: Just do IT.
+#description: 但行好事，莫问前程 
 author: foo
 language: zh-Hans
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://zhoufoofoo.github.com
+url: http://foofuu.github.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -69,7 +69,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/zhoufoofoo/zhoufoofoo.github.io.git
+  repo: https://github.com/foofuu/foofuu.github.io.git
   branch: master
 
 avatar: /images/avatar.jpg
