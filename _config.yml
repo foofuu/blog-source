@@ -69,7 +69,7 @@ qiniu:
   offline: false
   sync: true
   bucket: foofuu
-  access_key: Qiniu_AccessKey
+  access_key: ${Qiniu_AccessKey}
   secret_key: Qiniu_SecretKey
   dirPrefix:
   urlPrefix: http://otbsz8hna.bkt.clouddn.com
