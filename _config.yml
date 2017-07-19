@@ -65,9 +65,6 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: next
 
-plugins:
-  - hexo-qiniu-sync
-
 qiniu:
   offline: false
   sync: true
