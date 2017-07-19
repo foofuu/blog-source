@@ -13,11 +13,7 @@ before_install:
   - npm install hexo-util --save
   - npm install hexo-qiniu-sync --save
   - sed -i "s/Qiniu_AccessKey/$Qiniu_AccessKey/" _config.yml
-  - sed -i "s/Qiniu_AccessKey/$Qiniu_AccessKey/" _config.yml
   - sed -i "s/Qiniu_SecretKey/$Qiniu_SecretKey/" _config.yml
-  - sed -i "s/Qiniu_SecretKey/$Qiniu_SecretKey/" _config.yml
-  - cat _config.yml
-  - cat _config.yml
 
 install:
   - npm install
