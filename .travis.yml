@@ -4,7 +4,7 @@ node_js: stable
 
 env:
   global:
-    - GH_REF: github.com/zhoufoofoo/zhoufoofoo.github.io
+    - GH_REF: github.com/foofuu/foofuu.github.io
 
 before_install:
   - export TZ='Asia/Shanghai'  
