@@ -25,7 +25,6 @@ cache:
 script:
   - hexo clean
   - hexo generate
-  - hexo qiniu sync
 
 after_script:
   - cd ./public
