@@ -65,6 +65,27 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: next
 
+plugins:
+  - hexo-qiniu-sync
+
+qiniu:
+  offline: false
+  sync: true
+  bucket: foofuu
+  access_key: Qiniu_AccessKey
+  secret_key: Qiniu_SecretKey
+  dirPrefix:
+  urlPrefix: http://otbsz8hna.bkt.clouddn.com
+  local_dir: cdn
+  update_exist: true
+  image:
+    folder: images
+    extend:
+  js:
+    folder: js
+  css:
+    folder: css
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:

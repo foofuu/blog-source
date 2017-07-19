@@ -11,6 +11,9 @@ before_install:
   - npm install -g hexo
   - npm install -g hexo-cli
   - npm install hexo-util --save
+  - npm install hexo-qiniu-sync --save
+  - sed -i 's/Qiniu_AccessKey/${Qiniu_AccessKey}/' _config.yml
+  - sed -i 's/Qiniu_SecretKey/${Qiniu_SecretKey}/' _config.yml
 
 install:
   - npm install
@@ -22,6 +25,7 @@ cache:
 script:
   - hexo clean
   - hexo generate
+  - hexo qiniu sync
 
 after_script:
   - cd ./public
