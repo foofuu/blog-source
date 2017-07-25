@@ -42,6 +42,7 @@ menu:
   archives: /archives
   tags: /tags
   about: /about
+  photo: /photo
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 
@@ -62,7 +63,7 @@ menu_icons:
   archives: archive
   sitemap: sitemap
   commonweal: heartbeat
-
+  photo: photo
 
 
 

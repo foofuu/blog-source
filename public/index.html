@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -27,9 +27,12 @@
 
 
 
+
+
+
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +66,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -77,40 +80,56 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description" content="但行好事 莫问前程">
+<meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="夫夫的博客">
-<meta property="og:url" content="http://zhoufoofoo.github.com/index.html">
-<meta property="og:site_name" content="夫夫的博客">
-<meta property="og:description" content="但行好事 莫问前程">
+<meta property="og:title" content="Foo's Blog">
+<meta property="og:url" content="http://foofuu.github.com/index.html">
+<meta property="og:site_name" content="Foo's Blog">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="夫夫的博客">
-<meta name="twitter:description" content="但行好事 莫问前程">
+<meta name="twitter:title" content="Foo's Blog">
+<meta name="twitter:description">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"always"},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: undefined,
+      userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
-  <title> 夫夫的博客 </title>
+
+
+  <link rel="canonical" href="http://foofuu.github.com/"/>
+
+
+
+
+
+  <title> Foo's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -126,36 +145,44 @@
 
 
 
+
+
+
+
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
+  <div class="container sidebar-position-left 
    page-home 
  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">夫夫的博客</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Foo's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Just do IT.</p>
+      
   </div>
-  <p class="site-subtitle">夫夫的博客</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -215,12 +242,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-book">
-          <a href="/book" rel="section">
+        <li class="menu-item menu-item-photo">
+          <a href="/photo" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-photo"></i> <br />
             
-            书单
+            相册
           </a>
         </li>
       
@@ -231,6 +258,8 @@
 
   
 </nav>
+
+
 
  </div>
     </header>
@@ -245,13 +274,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://foofuu.github.com/2017/07/21/My-Gallery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="foo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Foo's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -263,8 +302,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/14/五层与七层模型/" itemprop="url">
-                  TCP/IP模型
+                <a class="post-title-link" href="/2017/07/21/My-Gallery/" itemprop="url">
+                  相册
                 </a>
               
             
@@ -273,34 +312,23 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-14T19:09:16+08:00" content="2017-03-14">
-              2017-03-14
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-21T12:22:00+08:00">
+                2017-07-21
+              </time>
+            
+
+            
+
+            
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/网络/" itemprop="url" rel="index">
-                    <span itemprop="name">网络</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
@@ -308,11 +336,14 @@
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
@@ -322,16 +353,33 @@
 
       
       
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://otbsz8hna.bkt.clouddn.com/images/concrete.jpg" rel="gallery_cj5j32wr40000rkhkv0a6sjzp"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://otbsz8hna.bkt.clouddn.com/images/concrete.jpg" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
 
       
         
-          <p>温故而知新，今天复习复习老本行计算机网络的相关知识，看到了以下几张比较好的图片。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/14/五层与七层模型/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            
+          
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -349,6 +397,8 @@
       
 
       
+
+      
       
         <div class="post-eof"></div>
       
@@ -360,13 +410,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://foofuu.github.com/2017/07/14/搬家/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="foo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Foo's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -378,8 +438,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/10/Redis数据结构/" itemprop="url">
-                  Redis数据结构
+                <a class="post-title-link" href="/2017/07/14/搬家/" itemprop="url">
+                  搬家
                 </a>
               
             
@@ -388,32 +448,43 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-10T18:09:23+08:00" content="2017-03-10">
-              2017-03-10
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T18:13:00+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构与算法</span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/心情随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">心情随笔</span>
                   </a>
                 </span>
 
                 
                 
-
               
             </span>
           
@@ -423,11 +494,14 @@
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
@@ -440,13 +514,22 @@
 
       
         
-          <p>在日常的web项目开发中，经常要使用到Redis，这篇文章简单记录一下redis的相关知识。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/10/Redis数据结构/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <p>前不久搬家了，零零散散收拾了几大包东西，开车从南三环到北五环跑了两趟才全部搬完。这次搬家是因为换房，原来住的房子卖掉了，走完手续到了给买家腾房的时间，买的房子还要装修，所以暂时租了个房子，房子就租在了新房对面的小区，第一次租房，想起别人说的合租的种种不方便，又考虑到这段时间又要装修，又要还贷款，又要租房的压力，最后折中租了个自如的主卧带独卫的房间，这样两个人住起来还算方便，也比整租省了不少。周末收拾完，看着这个陌生的屋子，不禁回忆起这些年住过的地方，搬过的家。</p>
+<p>对于我来说，没有经历过几次真正意义上的搬家，但是常住的地方换过好几次。我出生在北京郊区的农村里，从出生到小学一年级都和父母、爷爷奶奶住在一个比较大的院子里。后来由于要在城区上学，村子离的很远，父母就买了楼房，所以我经历的第一次搬家就是从老家的院子里搬走。虽然当时很小，但是我脑子里一直清楚的记得一个画面，就是我坐在一辆130货车的后兜里，扶着一些家具，车从村子里开出来的时候看到了一起玩儿的小伙伴，我在大声喊着他的名字，当他好像并没有听到我的声音。</p>
+<p>这次搬家后，我在城区的这栋楼房里住了很久，它见证了我的小学、初中、高中。直到我高考完，上了大学，我才搬到了西直门附近的学校宿舍里。这次只能算是换了个常住的地方，不能说是搬家，我记得大学报到是我父亲开着一辆桑塔纳，带着我和我的铺盖，一路开到了宿舍的楼下，父亲帮我铺好床铺，我就住下了。这是我第一次离开家，离开父母，在这北二环边儿，一住就是四年。</p>
+<p>再次换住的地方，就是研究生入学报到了，由于换了学校读研，我要从北二环边儿搬到北三环边儿，这次是女朋友和我一起搬家，我们在宿舍楼前排着长长的队，取完钥匙，将铺盖搬到新宿舍，整理好床铺，已经快天黑了。记得搬宿舍那天是一个非常热，一切都收拾妥当了，衣服都已经被汗湿透了。</p>
+<p>再次搬家是研究生毕业后，搬到的地方，是父母在我高中时候就在市区买的一套房子，父母算很有远见，考虑到我以后要在市区工作，就趁房价还没有飞涨的时候在南三环买了套小房子，所以毕业之后，我们自然就少了其他同学租房，找地方住的烦恼，直接搬去了自己的房子。这次搬家，印象也是比较深刻，毕竟是离开了校园，不用再住炎热，吵闹的宿舍，也少了室友一起游戏，一起看剧的那份欢乐。虽然自己的房子也只是个一居开间，比宿舍大不了太多，但两个人收拾妥当后，也算是很温馨舒服的住处。</p>
+<p>接下来就到了这次搬家了，为什么又要搬家呢，一是因为上班在北边太远，二是现在的房子太小，总住着也不是长久之计，所以就打算换房，于是卖房买房，一步一步走流程，慢慢就到了搬家的日子。回首看看这些年，从郊区到二环，到三环，又到五环，从南到北也算是在北京住过的地方也算是不少了。</p>
+<p>每次搬家都会有很多不舍，看着乱糟糟的宿舍，看着空荡荡的旧屋，割舍的不仅仅是那一间屋子，几件家具，更多的是那些屋子里记录着的三尺孩童的梦想，风华正茂书生的意气，恩爱情侣的憧憬。搬家既是一次艰难的取舍过程、也是一次对过往生活回忆留念的过程，那些或束之高阁、或深埋床底柜底的物件，一件件翻出，不时会有一个个惊喜打动着自己的心灵，有的是它存在但你从未花心思找着要看的、有的是你见过却又许久没找到的、有的又是你每天见却从不在意的，无一例外地在将要搬出这个家时，勾起你无尽的对过去的思念，心中五味杂陈。</p>
+<p>然而，老房子，终究也是抵挡不住时代的变迁，搬家也是喜悦的，充满希望的。为了更好的居住环境，为了更便捷的生活，我们总会一直在路上，人生不就是这样一直远离的过程吗，相离莫相忘，且行且珍惜，就让这些记忆激励自己继续奋斗吧。</p>
+
+          
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -464,6 +547,8 @@
       
 
       
+
+      
       
         <div class="post-eof"></div>
       
@@ -475,13 +560,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://foofuu.github.com/2017/07/13/奇怪的空格/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="foo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Foo's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -493,7 +588,154 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/10/可重入锁/" itemprop="url">
+                <a class="post-title-link" href="/2017/07/13/奇怪的空格/" itemprop="url">
+                  奇怪的空格
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-13T17:13:00+08:00">
+                2017-07-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术拾遗/" itemprop="url" rel="index">
+                    <span itemprop="name">技术拾遗</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天从一个运营给的Excel文件往数据库导入更新数据，导入完成后，发现总有一些数据没有被更新，但是文件里是有相应的数据的，一搜发现是用来做更新key的字段后有空格，例如：gh_55913f0ae122 ，然后就加了trim()函数，但是发现依然无法去掉中文空格，debug一看，这个空格是ascii码为160的空格，trim()函数是无效的，所以采用了以下的解决方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String test = <span class="string">"gh_55913f0ae122 "</span>;</span><br><span class="line">        System.out.println(test.length());</span><br><span class="line">        String test2 = test.replaceAll(<span class="string">"\\u00A0"</span>,<span class="string">""</span>);</span><br><span class="line">        System.out.println(test2.length());</span><br><span class="line">        System.out.println(test2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">origin, length = 16</span><br><span class="line">trimResult, length = 16</span><br><span class="line">replaceResult, length = 15</span><br></pre></td></tr></table></figure></p>
+<p>那这个ascii为160的空格是什么呢，其实就是html里的不间断空格<code>&amp;nbsp;</code>，如果在文本中写10个普通的ascii为32的空格，在显示该页面之前，浏览器会删除它们中的9个。如需在页面中增加空格的数量，需要使用 <code>&amp;nbsp;</code> 字符实体。<br>使用<code>StringEscapeUtils.unescapeHtml4()</code>转义<code>&amp;nbsp;</code>后和普通空格比较，可以发现返回的是false，因为两者ascii不一样，不是同样的空格。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(StringEscapeUtils.unescapeHtml4(<span class="string">"&amp;nbsp;"</span>).equals(<span class="string">" "</span>));</span><br><span class="line">System.out.println((<span class="keyword">int</span>)StringEscapeUtils.unescapeHtml4(<span class="string">"&amp;nbsp;"</span>).charAt(<span class="number">0</span>));</span><br><span class="line">System.out.println((<span class="keyword">int</span>)<span class="string">' '</span>);</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">false</span><br><span class="line">160</span><br><span class="line">32</span><br></pre></td></tr></table></figure></p>
+<p>所以ascii为160的空格的unicode是00A0，使用<code>replaceAll(&quot;\\u00A0&quot;,&quot;&quot;)</code>的方式可以解决。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://foofuu.github.com/2017/02/04/可重入锁/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="foo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Foo's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/04/可重入锁/" itemprop="url">
                   可重入锁
                 </a>
               
@@ -503,24 +745,36 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-10T18:04:11+08:00" content="2017-03-10">
-              2017-03-10
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-04T21:13:00+08:00">
+                2017-02-04
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/并发编程/" itemprop="url" rel="index">
                     <span itemprop="name">并发编程</span>
                   </a>
@@ -528,7 +782,6 @@
 
                 
                 
-
               
             </span>
           
@@ -538,11 +791,14 @@
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
@@ -555,13 +811,32 @@
 
       
         
-          <h3 id="1-什么是可重入锁"><a href="#1-什么是可重入锁" class="headerlink" title="1.什么是可重入锁"></a>1.什么是可重入锁</h3><p>锁的概念就不用多解释了，当某个线程A已经持有了一个锁，当线程B尝试进入被这个锁保护的代码段的时候，就会被阻塞。而锁的操作粒度是”线程”，而不是调用。同一个线程再次进入同步代码的时候，可以使用自己已经获取到的锁，这就是可重入锁。<br>Java里面内置锁(synchronize)和Lock(ReentrantLock)都是可重入的。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/10/可重入锁/#more" rel="contents">
+          <h3 id="1-什么是可重入锁"><a href="#1-什么是可重入锁" class="headerlink" title="1. 什么是可重入锁"></a>1. 什么是可重入锁</h3><p>锁的概念就不用多解释了，当某个线程A已经持有了一个锁，当线程B尝试进入被这个锁保护的代码段的时候，就会被阻塞。而锁的操作粒度是”线程”，而不是调用。同一个线程再次进入同步代码的时候，可以使用自己已经获取到的锁，这就是可重入锁。<br>Java里面内置锁(synchronize)和Lock(ReentrantLock)都是可重入的。</p>
+<h3 id="2-为什么要可重入"><a href="#2-为什么要可重入" class="headerlink" title="2. 为什么要可重入"></a>2. 为什么要可重入</h3><p>如果线程A继续再次获得这个锁呢？比如一个方法是synchronized，递归调用自己，那么第一次已经获得了锁，第二次调用的时候还能进入吗？直观上当然需要能进入，这就要求必须是可重入，.可重入锁又叫做递归锁，下面是Java并发编程一书中的例子。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Widget</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// do somethig here...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoggingWidget</span> <span class="keyword">extends</span> <span class="title">Widget</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(toString() + <span class="string">": calling doSomething"</span>);</span><br><span class="line">        <span class="keyword">super</span>.doSomething();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>书中原文是这么写的，</p>
+<blockquote>
+<p>“由于Widget和LoggingWidget中doSomething方法都是synchronized方法，因此每个doSomthing 方法在执行前都会获得Widget上的锁”</p>
+</blockquote>
+<p>作者或者翻译这句话描述有误或者不够严谨，synchronized在对方法使用的时候相当于使用 synchronized(this)，所以其实是用的该类实例的对象上的锁标志位，补上省略的主语和错误的地方后应该是这样：</p>
+<blockquote>
+<p>“由于Widget和LoggingWidget中doSomething方法都是synchronized方法，因此线程在每个doSomthing方法在执行前都会获得LoggingWidget实例上的锁”</p>
+</blockquote>
+<ul>
+<li>当线程执行LoggingWidget实例中的doSomething时获得LoggingWidget实例的锁。</li>
+<li>LoggingWidget实例doSomething方法中调用super.doSomething()，调用者依然是LoggingWidget实例，再次获得的锁依然是LoggingWidget实例的锁。</li>
+<li>线程再次获得LoggingWidget实例的锁，即锁的重入。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/04/可重入锁/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -579,119 +854,6 @@
       
 
       
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/10/关于单例模式/" itemprop="url">
-                  关于单例模式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-10T18:00:49+08:00" content="2017-03-10">
-              2017-03-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>单例模式无论是在实际项目开发还是面试中，都是经常会涉及到，今天总结一下什么样的单例模式才是正确的。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/10/关于单例模式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
 
       
       
@@ -705,13 +867,23 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://foofuu.github.com/2017/01/05/数据库事务隔离级别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="foo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Foo's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -723,7 +895,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/10/数据库事务隔离级别/" itemprop="url">
+                <a class="post-title-link" href="/2017/01/05/数据库事务隔离级别/" itemprop="url">
                   数据库事务隔离级别
                 </a>
               
@@ -733,24 +905,36 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-10T17:34:53+08:00" content="2017-03-10">
-              2017-03-10
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-05T17:13:00+08:00">
+                2017-01-05
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/数据库/" itemprop="url" rel="index">
                     <span itemprop="name">数据库</span>
                   </a>
@@ -758,7 +942,6 @@
 
                 
                 
-
               
             </span>
           
@@ -768,11 +951,14 @@
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
@@ -785,12 +971,15 @@
 
       
         
-          <p>之前对于数据库事务概念的理解有很多不到位的地方，今天用简单的实例再来阐述一下数据库事务和隔离级别的概念，也方便以后温故而知新。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/10/数据库事务隔离级别/#more" rel="contents">
+          <p>之前对于数据库事务概念的理解有很多不到位的地方，今天用简单的实例再来阐述一下数据库事务和隔离级别的概念，也方便以后温故而知新。</p>
+<h3 id="1-什么是事务"><a href="#1-什么是事务" class="headerlink" title="1. 什么是事务"></a>1. 什么是事务</h3><p>事务（Transaction）是并发控制的基本单位。所谓的事务，它是一个操作序列，这些操作要么都执行，要么都不执行，它是一个不可分割的工作单位。例如，银行转账工作：从一个账号扣款并使另一个账号增款，这两个操作要么都执行，要么都不执行。所以，应该把它们看成一个事务。事务是数据库维护数据一致性的单位，在每个事务结束时，都能保持数据一致性。<br>我们以Msql数据库的操作为例，再进一步解释一下数据库事务：<br>首先我们用以下命令查看该Mysql会话的事务隔离级别，关于事务隔离级别及其作用，我们在后面的章节中会进行详细介绍，这里只要简单知道数据库可以设置不同的事务隔离级别，不同的隔离级别会对事务的操作产生不同的效果即可。使用以下命令可以查询当前Mysql会话的事务隔离级别，可以看到，Mysql默认的事务隔离级别是REPEATABLE-READ。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/01/05/数据库事务隔离级别/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -803,7 +992,162 @@
       
     </div>
 
+    <div>
+      
+    </div>
+
     <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://foofuu.github.com/2016/12/13/关于单例模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="foo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Foo's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/13/关于单例模式/" itemprop="url">
+                  关于单例模式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-13T10:13:00+08:00">
+                2016-12-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>单例模式无论是在实际项目开发还是面试中，都是经常会涉及到，今天总结一下什么样的单例模式才是正确的。</p>
+<h3 id="1-存在问题的单例模式"><a href="#1-存在问题的单例模式" class="headerlink" title="1. 存在问题的单例模式"></a>1. 存在问题的单例模式</h3><h4 id="1-1-线程不安全的懒汉式"><a href="#1-1-线程不安全的懒汉式" class="headerlink" title="1.1 线程不安全的懒汉式"></a>1.1 线程不安全的懒汉式</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by zhoujunfu on 2016/8/24.</span><br><span class="line"> * 线程不安全的懒汉式单例</span><br><span class="line"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingletonLazyNonThreadSafe</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SingletonLazyNonThreadSafe instance;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SingletonLazyNonThreadSafe</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"初始化单例对象："</span> + <span class="keyword">this</span>.hashCode());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonLazyNonThreadSafe <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            instance =  <span class="keyword">new</span> SingletonLazyNonThreadSafe();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"获取单例对象："</span> + instance.hashCode());</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Runner</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        SingletonLazyNonThreadSafe.getInstance();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="comment">// 两个线程并发访问单例类创建实例</span></span><br><span class="line">        Runner runnerOne = <span class="keyword">new</span> Runner();</span><br><span class="line">        Runner runnerTwo = <span class="keyword">new</span> Runner();</span><br><span class="line"></span><br><span class="line">        Thread threadOne = <span class="keyword">new</span> Thread(runnerOne);</span><br><span class="line">        Thread threadTwo = <span class="keyword">new</span> Thread(runnerTwo);</span><br><span class="line"></span><br><span class="line">        threadOne.start();</span><br><span class="line">        threadTwo.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>懒汉式，也是最想当然的单例方式，线程不安全，可以从以下运行结果看出，线程并发访问这种单例类时，会初始化多个实例，违反了单例类的原则，如果在两个线程start的代码中间加入线程休眠时间，这样后运行的线程才能拿到先运行线程创建的单例对象。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/12/13/关于单例模式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
       
 
       
@@ -847,25 +1191,32 @@
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
-               alt="夫夫" />
-          <p class="site-author-name" itemprop="name">夫夫</p>
-          <p class="site-description motion-element" itemprop="description">但行好事 莫问前程</p>
+               alt="foo" />
+          <p class="site-author-name" itemprop="name">foo</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">5</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
           
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -873,9 +1224,11 @@
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">6</span>
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -889,23 +1242,20 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/zhoufoofoo" target="_blank" title="Github">
+                <a href="https://github.com/foofuu" target="_blank" title="GitHub">
                   
-                  Github
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://weibo.com/p/1005052029419720/" target="_blank" title="微博">
+                <a href="http://weibo.com/u/2029419720?refer_flag=1001030201_" target="_blank" title="Weibo">
                   
-                  微博
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.zhihu.com/people/foofoo" target="_blank" title="知乎">
+                    <i class="fa fa-fw fa-weibo"></i>
                   
-                  知乎
+                  Weibo
                 </a>
               </span>
             
@@ -918,7 +1268,12 @@
         
         
 
+        
+
+
       </section>
+
+      
 
       
 
@@ -939,19 +1294,10 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">夫夫</span>
+  <span class="author" itemprop="copyrightHolder">foo</span>
 </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
 
         
 
@@ -959,9 +1305,15 @@
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
   </div>
 
   
@@ -984,56 +1336,90 @@
 
 
 
-  
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
   
-  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
 
   
 
 
 
+
+	
+
+
+
+
+
   
+
+
+
+
+
   
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
   
 
   

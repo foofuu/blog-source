@@ -1,0 +1,8 @@
+*{padding:0;margin:0;}
+#wrap{
+position:relative;
+margin:0px auto;
+-webkit-column-height:150px;
+-moz-cloumn-height:150px;
+}
+#wrap li{height:auto;display:inline-block;list-style:none;}
