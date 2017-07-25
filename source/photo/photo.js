@@ -2,7 +2,7 @@
 * @Author: anchen
 * @Date:   2017-07-25 16:44:54
 * @Last Modified by:   anchen
-* @Last Modified time: 2017-07-25 17:14:37
+* @Last Modified time: 2017-07-25 17:20:34
 */
 
 'use strict';
@@ -48,10 +48,14 @@ for (var i = 0; i < data.length; i++) {
     var im = document.createElement("img");
     im.setAttribute("class","lazy");
     im.setAttribute("src","/images/img-err.png");
-    var  tmp2 = "http://7xrywe.com1.z0.glb.clouddn.com/"+data[i]+"?imageView2/1/w/250/h/250/q/100"
+    var  tmp2 = "http://7xrywe.com1.z0.glb.clouddn.com/"+data[i]+"?imageView2/1/w/300/h/300/q/100"
     im.setAttribute("data-original",tmp2);
     a.appendChild(im);
     d.appendChild(a);
     l.appendChild(d);
     wrap.appendChild(l);
 }
+
+$("img.lazy").lazyload({
+effect : "fadeIn" ,failurelimit : 10
+});

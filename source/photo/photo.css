@@ -6,3 +6,4 @@ margin:0px auto;
 -moz-cloumn-height:150px;
 }
 #wrap li{height:auto;display:inline-block;list-style:none;}
+#wrap ul {list-style: none;}
