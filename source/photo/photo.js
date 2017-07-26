@@ -2,12 +2,12 @@
 * @Author: anchen
 * @Date:   2017-07-25 16:44:54
 * @Last Modified by:   anchen
-* @Last Modified time: 2017-07-25 17:20:34
+* @Last Modified time: 2017-07-26 11:21:59
 */
 
 'use strict';
 var data = new Array(
-    "IMG_0943.JPG",
+    "20170725-1.jpg",
     "IMG_0944.JPG",
     "IMG_0945.JPG",
     "IMG_0946.JPG",
