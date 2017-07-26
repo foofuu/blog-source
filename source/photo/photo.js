@@ -2,24 +2,12 @@
 * @Author: anchen
 * @Date:   2017-07-25 16:44:54
 * @Last Modified by:   anchen
-* @Last Modified time: 2017-07-26 11:21:59
+* @Last Modified time: 2017-07-26 14:07:23
 */
 
 'use strict';
 var data = new Array(
-    "20170725-1.jpg",
-    "IMG_0944.JPG",
-    "IMG_0945.JPG",
-    "IMG_0946.JPG",
-    "IMG_0947.JPG",
-    "IMG_0948.JPG",
-    "IMG_0949.JPG",
-    "IMG_0950.JPG",
-    "IMG_0943.JPG",
-    "IMG_0944.JPG",
-    "IMG_0945.JPG",
-    "IMG_0946.JPG",
-    "IMG_0947.JPG"
+    "20170725-1.jpg"
 );
 var wrap = document.getElementById("wrap");
 // position:relative;
@@ -48,7 +36,7 @@ for (var i = 0; i < data.length; i++) {
     var im = document.createElement("img");
     im.setAttribute("class","lazy");
     im.setAttribute("src","/images/img-err.png");
-    var  tmp2 = "http://7xrywe.com1.z0.glb.clouddn.com/"+data[i]+"?imageView2/1/w/300/h/300/q/100"
+    var  tmp2 = "http://otbsz8hna.bkt.clouddn.com/images/"+data[i]+"?imageView2/1/w/300/h/300/q/100"
     im.setAttribute("data-original",tmp2);
     a.appendChild(im);
     d.appendChild(a);
