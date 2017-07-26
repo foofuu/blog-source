@@ -2,7 +2,7 @@
 * @Author: anchen
 * @Date:   2017-07-25 16:44:54
 * @Last Modified by:   anchen
-* @Last Modified time: 2017-07-26 14:07:23
+* @Last Modified time: 2017-07-26 17:01:33
 */
 
 'use strict';
@@ -44,6 +44,4 @@ for (var i = 0; i < data.length; i++) {
     wrap.appendChild(l);
 }
 
-$("img.lazy").lazyload({
-effect : "fadeIn" ,failurelimit : 10
-});
+$("img.lazy").lazyload();
