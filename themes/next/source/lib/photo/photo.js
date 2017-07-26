@@ -2,7 +2,7 @@
 * @Author: anchen
 * @Date:   2017-07-25 16:44:54
 * @Last Modified by:   anchen
-* @Last Modified time: 2017-07-26 18:05:19
+* @Last Modified time: 2017-07-26 19:47:52
 */
 
 'use strict';
@@ -10,12 +10,12 @@
 function initPhoto()
 {
     var data = new Array(
-    "20170725-1.JPG",
-    "20170726-1.JPG",
-    "20170726-2.JPG",
-    "20170726-3.JPG",
-    "20170726-4.JPG",
-    "20170726-5.JPG"
+    "20170725-1.jpg",
+    "20170726-1.jpg",
+    "20170726-2.jpg",
+    "20170726-3.jpg",
+    "20170726-4.jpg",
+    "20170726-5.jpg"
     );
 
     var wrap = document.getElementById("wrap");
