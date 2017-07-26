@@ -2,7 +2,7 @@
 * @Author: anchen
 * @Date:   2017-07-25 16:44:54
 * @Last Modified by:   anchen
-* @Last Modified time: 2017-07-26 17:01:33
+* @Last Modified time: 2017-07-26 17:31:09
 */
 
 'use strict';
@@ -35,7 +35,6 @@ for (var i = 0; i < data.length; i++) {
     a.setAttribute("href",tmp1);
     var im = document.createElement("img");
     im.setAttribute("class","lazy");
-    im.setAttribute("src","/images/img-err.png");
     var  tmp2 = "http://otbsz8hna.bkt.clouddn.com/images/"+data[i]+"?imageView2/1/w/300/h/300/q/100"
     im.setAttribute("data-original",tmp2);
     a.appendChild(im);
