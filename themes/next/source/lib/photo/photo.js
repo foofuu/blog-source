@@ -2,7 +2,7 @@
 * @Author: anchen
 * @Date:   2017-07-25 16:44:54
 * @Last Modified by:   anchen
-* @Last Modified time: 2017-07-26 19:47:52
+* @Last Modified time: 2017-07-26 21:00:11
 */
 
 'use strict';
@@ -31,7 +31,7 @@ function initPhoto()
         var a = document.createElement("a");
         a.setAttribute("class","grouped_elements");
         a.setAttribute("rel","group1");
-        var  tmp1 = "http://7xrywe.com1.z0.glb.clouddn.com/"+data[i];
+        var  tmp1 = "http://otbsz8hna.bkt.clouddn.com/"+data[i];
         a.setAttribute("href",tmp1);
         var im = document.createElement("img");
         im.setAttribute("class","lazy");
