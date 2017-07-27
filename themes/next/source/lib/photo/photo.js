@@ -2,7 +2,7 @@
 * @Author: anchen
 * @Date:   2017-07-25 16:44:54
 * @Last Modified by:   anchen
-* @Last Modified time: 2017-07-27 11:49:21
+* @Last Modified time: 2017-07-27 14:34:12
 */
 
 'use strict';
@@ -30,7 +30,7 @@ function initPhoto()
         d.setAttribute("width","180px");
         var a = document.createElement("a");
         a.setAttribute("class","grouped_elements");
-        a.setAttribute("rel","group1");
+        a.setAttribute("rel","external");
         var  tmp1 = "http://otbsz8hna.bkt.clouddn.com/images/"+data[i];
         a.setAttribute("href",tmp1);
         var im = document.createElement("img");
