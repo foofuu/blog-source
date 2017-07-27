@@ -1,3 +1,6 @@
+---
+layout: false
+---
 <head>
 <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
