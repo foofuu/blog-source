@@ -5,6 +5,6 @@
 <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 <script  type="text/javascript">window.onload = function(){initPhoto();};</script>
 <link rel="stylesheet" type="text/css" href="/css/photo/photo.css" />
-<link type="text/css" href="/css/photo/jquery.fancybox.css" rel="stylesheet">
+<link type="text/css" href="/lib/fancybox/source/jquery.fancybox.css" rel="stylesheet">
 </head>
 <ul id="wrap"></ul>

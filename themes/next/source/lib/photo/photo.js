@@ -2,7 +2,7 @@
 * @Author: anchen
 * @Date:   2017-07-25 16:44:54
 * @Last Modified by:   anchen
-* @Last Modified time: 2017-07-27 14:34:12
+* @Last Modified time: 2017-07-27 14:39:22
 */
 
 'use strict';
@@ -29,8 +29,8 @@ function initPhoto()
         d.setAttribute("height","auto");
         d.setAttribute("width","180px");
         var a = document.createElement("a");
-        a.setAttribute("class","grouped_elements");
-        a.setAttribute("rel","external");
+        a.setAttribute("class","grouped_elements fancybox");
+        a.setAttribute("rel","group");
         var  tmp1 = "http://otbsz8hna.bkt.clouddn.com/images/"+data[i];
         a.setAttribute("href",tmp1);
         var im = document.createElement("img");
