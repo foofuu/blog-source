@@ -1,5 +1,5 @@
 ---
-layout: false
+layout: photo
 ---
 <head>
 <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
