@@ -73,12 +73,6 @@
   <meta property="fb:app_id" content="{{ theme.facebook_sdk.app_id }}" />
 {% endif %}
 
-<link rel="stylesheet" type="text/css" href="/css/photo/photo.css" />
-
-{% if page.type == 'photo' %}
-  <script type="text/javascript" src="/lib/photo/photo.js"></script>
-{% endif %}
-
 {{
   open_graph({
     twitter_id: theme.twitter,
@@ -118,3 +112,8 @@
 {% endif %}
 
 {% include 'head/custom-head.swig' %}
+
+{% if page.type == 'photo' %}
+  <link rel="stylesheet" type="text/css" href="/css/photo/photo.css" />
+  <script type="text/javascript" src="/lib/photo/photo.js"></script>
+{% endif %}
