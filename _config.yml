@@ -91,4 +91,3 @@ deploy:
   branch: master
 
 avatar: /images/avatar.jpg
-fancybox: true
