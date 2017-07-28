@@ -494,8 +494,8 @@ vendors:
 
   # Internal version: 2.1.5
   # See: http://fancyapps.com/fancybox/
-  fancybox: true
-  fancybox_css: true
+  fancybox:
+  fancybox_css:
 
   # Internal version: 1.0.6
   # See: https://github.com/ftlabs/fastclick
@@ -503,7 +503,7 @@ vendors:
 
   # Internal version: 1.9.7
   # See: https://github.com/tuupola/jquery_lazyload
-  lazyload: true
+  lazyload:
 
   # Internal version: 1.2.1
   # See: http://VelocityJS.org
