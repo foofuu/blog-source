@@ -73,6 +73,12 @@
   <meta property="fb:app_id" content="{{ theme.facebook_sdk.app_id }}" />
 {% endif %}
 
+<link rel="stylesheet" type="text/css" href="/css/photo/photo.css" />
+
+{% if page.type == 'photo' %}
+  <script type="text/javascript" src="/lib/photo/photo.js"></script>
+  <script  type="text/javascript">window.onload = function(){initPhoto();};</script>
+{% endif %}
 
 {{
   open_graph({
