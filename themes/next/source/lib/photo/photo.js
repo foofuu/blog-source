@@ -2,13 +2,12 @@
 * @Author: anchen
 * @Date:   2017-07-25 16:44:54
 * @Last Modified by:   anchen
-* @Last Modified time: 2017-07-27 14:39:22
+* @Last Modified time: 2017-07-28 17:39:44
 */
 
 'use strict';
 
-function initPhoto()
-{
+$(function(){
     var data = new Array(
     "20170725-1.jpg",
     "20170726-1.jpg",
@@ -45,5 +44,4 @@ function initPhoto()
     $("img.lazy").lazyload({
     effect : "fadeIn"
     });
-}
-
+})

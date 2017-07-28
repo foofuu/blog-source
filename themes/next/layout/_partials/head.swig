@@ -77,7 +77,6 @@
 
 {% if page.type == 'photo' %}
   <script type="text/javascript" src="/lib/photo/photo.js"></script>
-  <script  type="text/javascript">window.onload = function(){initPhoto();};</script>
 {% endif %}
 
 {{
