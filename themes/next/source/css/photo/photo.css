@@ -6,5 +6,5 @@ margin:0px auto;
 -moz-cloumn-height:150px;
 }
 #wrap div{width:250px;}
-#wrap li{height:auto;display:inline-block;list-style:none;}
+#wrap li{height:auto;display:inline-block;list-style:none;margin-right: 6px;}
 #wrap ul {list-style: none;}
