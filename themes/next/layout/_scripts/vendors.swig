@@ -29,3 +29,8 @@
   {% set internal_script = url_for(theme.vendors._internal) + '/' + internal %}
   <script type="text/javascript" src="{{ theme.vendors[name] | default(internal_script) }}"></script>
 {% endfor %}
+
+{% if page.type == 'photo' %}
+  <link rel="stylesheet" type="text/css" href="/css/photo/photo.css" />
+  <script type="text/javascript" src="/lib/photo/photo.js"></script>
+{% endif %}

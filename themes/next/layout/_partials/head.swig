@@ -112,8 +112,3 @@
 {% endif %}
 
 {% include 'head/custom-head.swig' %}
-
-{% if page.type == 'photo' %}
-  <link rel="stylesheet" type="text/css" href="/css/photo/photo.css" />
-  <script type="text/javascript" src="/lib/photo/photo.js"></script>
-{% endif %}
