@@ -5,7 +5,7 @@
 # Site
 title:  Foo's Blog
 subtitle: Just do IT.
-#description: 但行好事，莫问前程 
+#description: 但行好事，莫问前程
 author: foo
 language: zh-Hans
 timezone:
@@ -91,3 +91,4 @@ deploy:
   branch: master
 
 avatar: /images/avatar.jpg
+fancybox: true
