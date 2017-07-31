@@ -75,7 +75,6 @@ qiniu:
   urlPrefix: http://otbsz8hna.bkt.clouddn.com
   local_dir: cdn
   update_exist: true
-  up_host: http://up.qiniu.com
   image:
     folder: images
     extend:
