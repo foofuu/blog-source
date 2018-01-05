@@ -2659,8 +2659,6 @@ hr {
 @media (min-width: 1600px) {
   .posts-expand .post-title {
     font-size: 26px;
-    text-align: center;
-    font-weight: bold;
   }
 }
 .posts-expand .post-title:hover:before {
