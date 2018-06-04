@@ -5,11 +5,11 @@ tags: [ZooKeeper]
 categories: Web
 ---
 ### 1.角色
-一般的，在分布式系统中，构成集群的每一台机器都有自己的角色，最为典型的集群模式就是Master/Slave主备模式。在该模式中，我们把能够处理所有写操作的机器称为Master节点，并把所有通过异步复制方式获取最新数据、提供读服务的机器称为Slave节点。
+一般的，在分布式系统中，构成集群的每一台机器都有自己的角色，最为典型的集群模式就是Master/Slave主备模式。在该模式中，我们把能够处理所有写操作的机器称为Master节点，并把所有通过异步复制方式获取最新数据、提供读服务的机器称为Slave节点。<!--more-->
 
 而 Zookeeper 中，则是引入了领导者（Leader）、跟随者（Follower）、观察者（Observer）三种角色和领导（Leading）、跟随（Following）、观察（Observing）、寻找（Looking） 等相应的状态。在Zookeeper集群中的通过一种Leader选举的过程，来选定某个节点作为Leader节点，该节点为客户端提供读和写服务。而Follower和Observer节点，则都能提供读服务，唯一的区别在于，Observer机器不参与Leader选举过程和写操作的"过半写成功"策略，Observer只会被告知已经commit的proposal。因此Observer可以在不影响写性能的情况下提升集群的读性能。
 
-{% qnimg 20180604-1.jpg %}
+{% qnimg 20180604-1.png %}
 
 
 ### 2.会话
@@ -17,7 +17,7 @@ Session指客户端会话。在Zookeeper中，一个客户端会话是指客户�
 
 Session的sessionTimeout参数，用来控制一个客户端会话的超时时间。当服务器压力太大或者是网络故障等各种原因导致客户端连接断开时，Client会自动从Zookeeper 地址列表中逐一尝试重连（重试策略可使用 Curator 来实现）。只要在sessionTimeout规定的时间内能够重新连接上集群中任意一台服务器，那么之前创建的会话仍然有效。如果，在sessionTimeout时间外重连了，就会因为 Session 已经被清除了，而被告知SESSION_EXPIRED，此时需要程序去恢复临时数据。
 
-{% qnimg 20180604-2.jpg %}
+{% qnimg 20180604-2.png %}
 
 ### 3.数据模型
 在Zookeeper中，节点分为两类，第一类是指构成集群的机器，称之为机器节点；第二类则是指 数据模型中的数据单元，称之为数据节点ZNode。Zookeeper将所有数据存储在内存中，数据模型的结构类似于树ZNodeTree），由斜杠（/）进行分割的路径，就是一个 ZNode，例如 /foo/path1。每个 ZNode 上都会保存自己的数据内容 和 一系列属性信息。
@@ -26,7 +26,7 @@ ZNode可以分为持久节点（PERSISTENT）和临时节点（EPHEMERAL）两�
 
 另外，Zookeeper还有一种顺序节点（SEQUENTIAL）。该节点被创建的时候，Zookeeper 会自动在其子节点名上，加一个由父节点维护的、自增整数的后缀（上限：Integer.MAX_VALUE）。该节点的特性，还可以应用到 持久 / 临时节点 上，组合成 持久顺序节点（PERSISTENT_SEQUENTIAL）和临时顺序节点（EPHEMERAL_SEQUENTIAL）。
 
-{% qnimg 20180604-3.jpg %}
+{% qnimg 20180604-3.png %}
 
 ### 4.版本
 Zookeeper的每个ZNode上都会存储数据，对应于每个ZNode，Zookeeper都会为其维护一个叫做Stat的数据结构，Stat中记录了这个ZNode的三个数据版本，分别是version（当前 ZNode数据内容的版本），cversion（当前ZNode子节点的版本）和aversion（当前 ZNode的ACL变更版本）。这里的版本起到了控制Zookeeper操作原子性的作用。
@@ -34,7 +34,7 @@ Zookeeper的每个ZNode上都会存储数据，对应于每个ZNode，Zookeeper�
 ### 5.Watcher
 Watcher（事件监听器）是Zookeeper 提供的一种发布/订阅的机制。Zookeeper允许用户在指定节点上注册一些Watcher，并且在一些特定事件触发的时候，Zookeeper服务端会将事件通知给订阅的客户端。该机制是Zookeeper实现分布式协调的重要特性。
 
-{% qnimg 20180604-4.jpg %}
+{% qnimg 20180604-4.png %}
 
 ### 6.ACL
 类似于Unix文件系统，Zookeeper采用ACL（Access Control Lists）策略来进行权限控制。
