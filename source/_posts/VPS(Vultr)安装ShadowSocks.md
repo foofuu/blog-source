@@ -1,5 +1,5 @@
 ---
-title: VPS(Vultr)安装ShadowSocks.md
+title: VPS(Vultr)安装ShadowSocks
 date: 2018-04-28 14:56:00
 tags: [乱七八糟]
 categories: 乱七八糟
