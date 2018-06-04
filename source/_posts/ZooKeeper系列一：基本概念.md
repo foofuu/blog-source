@@ -84,7 +84,7 @@ public void ipAcl() throws Exception {
 ```
 简单易用，直接在物理层面，对用户进行权限隔离；但是，如果不将 127.0.0.1 放入到 IP Acl 列表里，会给服务端的运维带来麻烦
 
-#### IP
+#### DIGEST
 ```
 @Before
 public void init() throws Exception {
