@@ -45,9 +45,11 @@ public class AccountingSync implements Runnable{
      */
 }
 ``` 
+
 上述代码中，我们开启两个线程操作同一个共享资源即变量i，由于i++;操作并不具备原子性，该操作是先读取值，然后写回一个新值，相当于原来的值加上1，分两步完成，如果第二个线程在第一个线程读取旧值和写回新值期间读取i的域值，那么第二个线程就会与第一个线程一起看到同一个值，并执行相同值的加1操作，这也就造成了线程安全失败，因此对于increase方法必须使用synchronized修饰，以便保证线程安全。此时我们应该注意到synchronized修饰的是实例方法increase，在这样的情况下，当前线程的锁便是实例对象instance，注意Java中的线程同步锁可以是任意对象。从代码执行结果来看确实是正确的，倘若我们没有使用synchronized关键字，其最终输出结果就很可能小于2000000，这便是synchronized关键字的作用。
 
 ***修饰静态方法***：作用于当前类对加锁象(Class对象，每个类都有一个Class对象,)，进入同步代码前要获得当前类对象（Class对象）的锁
+
 ```
 public class AccountingSyncClass implements Runnable{
     static int i=0;
@@ -86,9 +88,11 @@ public class AccountingSyncClass implements Runnable{
     }
 }
 ```
+
 由于synchronized关键字修饰的是静态increase方法，与修饰实例方法不同的是，其锁对象是当前类的class对象。注意代码中的increase4Obj方法是实例方法，其对象锁是当前实例对象，如果别的线程调用该方法，将不会产生互斥现象，毕竟锁对象不同，但我们应该意识到这种情况下可能会发现线程安全问题(操作了共享静态变量i)。
 
 ***修饰代码块***：指定加锁对象，对给定对象加锁，进入同步代码库前要获得给定对象的锁。
+
 ```
 public class AccountingSync implements Runnable{
     static AccountingSync instance=new AccountingSync();
@@ -112,7 +116,9 @@ public class AccountingSync implements Runnable{
     }
 }
 ```
+
 从代码看出，将synchronized作用于一个给定的实例对象instance，即当前实例对象就是锁对象，每次当线程进入synchronized包裹的代码块时就会要求当前线程持有instance实例对象锁，如果当前有其他线程正持有该对象锁，那么新到的线程就必须等待，这样也就保证了每次只有一个线程执行i++;操作。当然除了instance作为对象外，我们还可以使用this对象(代表当前实例)或者当前类的class对象作为锁，如下代码：
+
 ```
 //this,当前实例对象锁
 synchronized(this){
@@ -128,6 +134,7 @@ synchronized(AccountingSync.class){
     }
 }
 ```
+
 以上就是java中synchronized关键字的用法，很简单，接下来我们先介绍一些基础知识，然后一步一步说明synchronize关键字的低层实现原理。
 
 ### 2.Java对象头
@@ -160,6 +167,7 @@ HotSpot虚拟机中，对象在内存中存储的布局可以分为三块区域�
  什么是Monitor？我们可以把它理解为一个同步工具，也可以描述为一种同步机制，它通常被描述为一个对象。与一切皆对象一样，所有的Java对象是天生的Monitor，每一个Java对象都有成为Monitor的潜质，因为在Java的设计中，每一个Java对象自打娘胎里出来就带了一把看不见的锁，它叫做内部锁或者Monitor锁。
  
  每个对象都存在着一个 monitor 与之关联，对象与其 monitor 之间的关系有存在多种实现方式，如monitor可以与对象一起创建销毁或当线程试图获取对象锁时自动生成，但当一个 monitor 被某个线程持有后，它便处于锁定状态。在Java虚拟机(HotSpot)中，monitor是由ObjectMonitor实现的，其主要数据结构如下（位于HotSpot虚拟机源码ObjectMonitor.hpp文件，C++实现的）。
+
  ```
  ObjectMonitor() {
     _header       = NULL;
@@ -188,6 +196,7 @@ HotSpot虚拟机中，对象在内存中存储的布局可以分为三块区域�
 
 ### 3.Synchronized原理
 #### 3.1 同步代码块
+
 ```
 public class SyncCodeBlock {
     public int i;
@@ -199,6 +208,7 @@ public class SyncCodeBlock {
     }
 }
 ```
+
 编译上述代码并使用javap反编译后得到字节码如下(这里我们省略一部分没有必要的信息)：
 
 ```
@@ -240,7 +250,6 @@ public class com.fufu.concurrent.SyncCodeBlock {
 
 ```
 
-
 从字节码中可知同步语句块的实现使用的是monitorenter和monitorexit指令，其中monitorenter指令指向同步代码块的开始位置，monitorexit指令则指明同步代码块的结束位置，当执行monitorenter指令时，当前线程将试图获取objectref(即对象锁) 所对应的 monitor 的持有权，当 objectref 的 monitor的进入计数器为 0，那线程可以成功取得monitor，并将计数器值设置为1，取锁成功。
 
 如果当前线程已经拥有 objectref 的 monitor 的持有权，那它可以重入这个 monitor (关于重入性稍后会分析)，重入时计数器的值也会加 1。倘若其他线程已经拥有 objectref 的 monitor的所有权，那当前线程将被阻塞，直到正在执行线程执行完毕，即monitorexit指令被执行，执行线程将释放 monitor(锁)并设置计数器值为0 ，其他线程将有机会持有 monitor 。
@@ -248,6 +257,7 @@ public class com.fufu.concurrent.SyncCodeBlock {
 值得注意的是编译器将会确保无论方法通过何种方式完成，方法中调用过的每条 monitorenter 指令都有执行其对应 monitorexit 指令，而无论这个方法是正常结束还是异常结束。为了保证在方法异常完成时 monitorenter 和 monitorexit 指令依然可以正确配对执行，编译器会自动产生一个异常处理器，这个异常处理器声明可处理所有的异常，它的目的就是用来执行 monitorexit 指令。从字节码中也可以看出多了一个monitorexit指令，它就是异常结束时被执行的释放monitor 的指令。
 
 #### 3.2 同步方法
+
 ```
 public class SyncMethod {
 
@@ -258,6 +268,7 @@ public class SyncMethod {
    }
 }
 ```
+
 方法级的同步是隐式，即无需通过字节码指令来控制的，它实现在方法调用和返回操作之中。JVM可以从方法常量池中的方法表结构(method_info Structure) 中的 ACC_SYNCHRONIZED 访问标志区分一个方法是否同步方法。当方法调用时，调用指令将会 检查方法的 ACC_SYNCHRONIZED访问标志是否被设置，如果设置了，执行线程将先持有monitor（虚拟机规范中用的是管程一词），然后再执行方法，最后再方法完成(无论是正常完成还是非正常完成)时释放monitor。在方法执行期间，执行线程持有了monitor，其他任何线程都无法再获得同一个monitor。如果一个同步方法执行期间抛 出了异常，并且在方法内部无法处理此异常，那这个同步方法所持有的monitor将在异常抛到同步方法之外时自动释放。下面我们看看字节码层面如何实现：
 
 ```
@@ -280,6 +291,7 @@ public class SyncMethod {
         line 12: 0
         line 13: 10
 ```
+
 从字节码中可以看出，synchronized修饰的方法并没有monitorenter指令和monitorexit指令，取得代之的确实是ACC_SYNCHRONIZED标识，该标识指明了该方法是一个同步方法，JVM通过该ACC_SYNCHRONIZED访问标志来辨别一个方法是否声明为同步方法，从而执行相应的同步调用。这便是synchronized锁在同步代码块和同步方法上实现的基本原理。
 
 ### 4. 锁优化
