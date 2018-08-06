@@ -38,7 +38,7 @@ seo: false
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   #将主页设置为了归档页
-  home: /archives
+  home: /
   categories: /categories
   #archives: /archives
   tags: /tags
