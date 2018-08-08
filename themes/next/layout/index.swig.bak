@@ -1,8 +1,5 @@
 
-{ #
-This is a comment.
-It will be fully stripped and ignored during parsing.
-# }
+{ # # }
 
 {% extends '_layout.swig' %}
 {% import '_macro/post.swig' as post_template %}
